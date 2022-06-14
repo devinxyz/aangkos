@@ -5,14 +5,15 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 
 
 
+
 export default function Example() {
     return (
       <>
-
+      
       <Navbar />
 
     {/* 1 */}
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 mt-6">
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="lg:pr-10">
           <a
@@ -124,14 +125,10 @@ export default function Example() {
     
     {/* 3 */}
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div className="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">
-        <h2 className="max-w-lg mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group">
-          <span className="inline-block mb-1 sm:mb-4">
-            Area Kos Terpopuler
-          </span>
-          <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
-        </h2>
-       
+    <div className="mx-auto mb-10 lg:max-w-xl sm:text-center">
+      <h4 className="text-teal-500 font-bold text-4xl">
+        AREA KOS TERPOPULER
+      </h4>
       </div>
       <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
         <a href="/" aria-label="View Item">
@@ -270,12 +267,9 @@ export default function Example() {
     {/* 4 */}
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="mx-auto mb-10 lg:max-w-xl sm:text-center">
-      <h4 className="max-w-lg mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group">
-          <span className="inline-block mb-1 sm:mb-4">
-            Kos Sekitar Kampus
-          </span>
-          <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
-        </h4>
+      <h4 className="text-teal-500 font-bold text-4xl">
+        KOS AREA KAMPUS
+      </h4>
         
       </div>
       <div className="grid gap-10 mx-auto lg:max-w-screen-lg sm:grid-cols-2 lg:grid-cols-4">
@@ -378,15 +372,15 @@ export default function Example() {
         <div className="max-w-md w-full space-y-8">
           <div>
             
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">LOGIN</h2>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-teal-500">LOGIN</h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               atau{' '}
-              <a href="#" className="font-medium text-violet-600 hover:text-violet-500">
+              <a href="Daftar" className="font-medium text-teal-500 hover:text-violet-500">
                 Daftar jika belum punya akun
               </a>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" action="Notif" >
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
