@@ -8,7 +8,7 @@ const Notif = lazy(() => import('./Notif'));
 const Kamar = lazy(() => import('./Kamar'));
 const Pusat = lazy(() => import('./Pusat'));
 const Syarat = lazy(() => import('./Syarat'));
-const Api = lazy(() => import('./Api'));
+
 
 const App = () => (
   <Router>
@@ -21,7 +21,6 @@ const App = () => (
         <Route path="/Kamar" element={<Kamar />} />
         <Route path="/Pusat" element={<Pusat />} />
         <Route path="/Syarat" element={<Syarat />} />
-        <Route path="/Api" element={<Api />} />
 
       </Routes>
     </Suspense>

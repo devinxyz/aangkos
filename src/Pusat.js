@@ -2,12 +2,34 @@
 import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Axios from "axios";
+import React, { useState, useEffect } from "react";
+
 
 export default function Example() {
+
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  const getProduct = () => {
+    Axios.get(`https://raw.githubusercontent.com/devinxyz/apibantuan/main/bantuan`)
+      .then((res) => {
+        const data = res.data;
+        setProduct(data.products);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  };
+
   return (
     <>
     <Navbar/>
-    {/* 1 */}
+    {/* News */}
     <div className="bg-teal-500">
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between flex-wrap">
@@ -41,7 +63,7 @@ export default function Example() {
       </div>
     </div>
 
-    {/* 2 */}
+    {/* Sapaan */}
     <div className="bg-gray-50">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
         <h2 className="text-3xl font-extrabold tracking-tight text-violet-600 sm:text-4xl">
@@ -69,55 +91,39 @@ export default function Example() {
       </div>
     </div>
 
-    {/* 3 */}
+    {/* Gambar */}
+    
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid max-w-screen-xl gap-10 row-gap-5 md:row-gap-8 sm:mx-auto lg:grid-cols-2">
+      {product.map((products) => (
         <div className="transition duration-300 transform bg-white rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
+        
+          <a  key={product.id} href={product.href} className="group">
           <div className="relative">
             <img
               className="object-cover w-full h-64 rounded-t lg:h-80 xl:h-96"
-              src="https://images.pexels.com/photos/3182796/pexels-photo-3182796.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-              alt=""
+              src={products.url} 
             />
             <div className="absolute inset-0 bg-gray-800 bg-opacity-25" />
           </div>
           <div className="px-6 py-8 border border-t-0 rounded-b sm:px-8">
             <h5 className="mb-2 text-xl font-bold leading-none sm:text-2xl text-violet-600">
-              Team A'ang Kos
+              {products.judul}
             </h5>
             <p className="mb-5 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae. Sed ut
-              perspiciatis unde.
+              {products.keterangan}
             </p>
            
           </div>
-        </div>
-        <div className="transition duration-300 transform bg-white rounded shadow-sm hover:-translate-y-1 hover:shadow md:text-center">
-          <div className="relative">
-            <img
-              className="object-cover w-full h-64 rounded-t lg:h-80 xl:h-96"
-              src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-              alt=""
-            />
-            <div className="absolute inset-0 bg-gray-800 bg-opacity-25" />
-          </div>
-          <div className="px-6 py-8 border border-t-0 rounded-b sm:px-8">
-            <h5 className="mb-2 text-xl font-bold leading-none sm:text-2xl text-violet-600">
-              Client yang bekerja sama
-            </h5>
-            <p className="mb-5 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae. aut sujad gua Sed ut
-              perspiciatis unde.
-            </p>
+          </a>
            
-          </div>
-        </div>
+        </div> 
+         ))}  
       </div>
     </div>
+     
 
-    {/* 4 */}
+    {/* Pertanyaan */}
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
         <div>
@@ -285,6 +291,7 @@ export default function Example() {
       </div>
      
     </div>
+   
     <Footer/>
     </>
   )

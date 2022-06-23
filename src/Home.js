@@ -1,12 +1,32 @@
-import React from "react";
-import Navbar from './components/Navbar';
-import Fotter from './components/Footer';
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Axios from "axios";
+import React, { useState, useEffect } from "react";
 import { LockClosedIcon } from '@heroicons/react/solid'
 
 
 
 
 export default function Example() {
+
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  const getProduct = () => {
+    Axios.get(`https://raw.githubusercontent.com/devinxyz/home/main/home`)
+      .then((res) => {
+        const data = res.data;
+        setProduct(data.products);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  };
+
     return (
       <>
       
@@ -131,119 +151,25 @@ export default function Example() {
       </h4>
       </div>
       <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
-        <a href="/" aria-label="View Item">
+      {product.map((products) => (
+        <a href="/" aria-label="View Item"  key={product.id}>
           <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
             <img
               className="object-cover w-full h-56 md:h-64 xl:h-60"
-              src="https://storage.googleapis.com/tempatwisataunik/2016/01/Monas-Jakarta.jpg"
-              alt=""
+              src={products.url}
+              
             />
             <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
               <p className="text-sm font-medium tracking-wide text-white">
-                Jakarta
+                {products.keterangan}
               </p>
             </div>
           </div>
         </a>
-        <a href="/" aria-label="View Item">
-          <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img
-              className="object-cover w-full h-56 md:h-64 xl:h-60"
-              src="https://2.bp.blogspot.com/-u5nlNT1vT74/T4-H8ryF3QI/AAAAAAAAAPw/BYyarxq19x0/s1600/GEDUNG+SATE,+BANDUNG.jpg"
-              alt=""
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
-              <p className="text-sm font-medium tracking-wide text-white">
-                Bandung
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img
-              className="object-cover w-full h-56 md:h-64 xl:h-60"
-              src="https://www.mysweetescapediary.com/wp-content/uploads/2018/05/kota-tua-semarang-1-1024x768.jpg"
-              alt=""
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
-              <p className="text-sm font-medium tracking-wide text-white">
-                Semarang
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img
-              className="object-cover w-full h-56 md:h-64 xl:h-60"
-              src="http://initu.id/wp-content/uploads/2018/05/Sejarah-Wisata-Kuliner-Purwokerto-Ibu-Kota-Banyumas.jpg"
-              alt=""
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
-              <p className="text-sm font-medium tracking-wide text-white">
-                Purwokerto
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img
-              className="object-cover w-full h-56 md:h-64 xl:h-60"
-              src="https://www.silverkris.com/wp-content/uploads/2017/11/Suroboyo-Monument.jpg"
-              alt=""
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
-              <p className="text-sm font-medium tracking-wide text-white">
-                Surabaya
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img
-              className="object-cover w-full h-56 md:h-64 xl:h-60"
-              src="http://wallpapersdsc.net/wp-content/uploads/2017/10/Bali-Gallery.jpg"
-              alt=""
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
-              <p className="text-sm font-medium tracking-wide text-white">
-                Bali
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img
-              className="object-cover w-full h-56 md:h-64 xl:h-60"
-              src="http://www.easybook.com/images/destination/Indonesia/Palembang/AmperaBridge3.jpg"
-              alt=""
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
-              <p className="text-sm font-medium tracking-wide text-white">
-                Palembang
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="/" aria-label="View Item">
-          <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-            <img
-              className="object-cover w-full h-56 md:h-64 xl:h-60"
-              src="https://c4.wallpaperflare.com/wallpaper/395/382/562/bulb-city-indonesia-java-wallpaper-preview.jpg"
-              alt=""
-            />
-            <div className="absolute inset-x-0 bottom-0 px-6 py-4 bg-black bg-opacity-75">
-              <p className="text-sm font-medium tracking-wide text-white">
-                Yogyakarta
-              </p>
-            </div>
-          </div>
-        </a>
+          ))}
+       
       </div>
+
       <div className="text-center">
         <a
           href="/"
@@ -450,7 +376,7 @@ export default function Example() {
     {/* End */}
 
 
-      <Fotter/>
+        <Footer/>
       </>
     )
   }

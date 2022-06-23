@@ -1,11 +1,34 @@
 import Navbar from './components/Navbar'
 import Foter from './components/Footer'
-import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline'
+import Axios from "axios";
+import React, { useState, useEffect } from "react";
+
+
 
 export default function Example() {
+
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  const getProduct = () => {
+    Axios.get(`https://raw.githubusercontent.com/devinxyz/Api/main/products`)
+      .then((res) => {
+        const data = res.data;
+        setProduct(data.products);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  };
+
+
     return (
         <>
-        
+
         <Navbar/>
         
         {/* 1 */}
@@ -74,240 +97,42 @@ export default function Example() {
           Kos dengan fasilitas yang minimalis
         </h2>
       </div>
+
+      {/* Kamar */}
+
       <div className="grid gap-5 row-gap-5 mb-8 pt-6 lg:grid-cols-4 sm:grid-cols-2">
+      {product.map((products) => (
         <a
-          href="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
+          key={product.id} href={product.href}
+          className="inline-block overflow-hidden group duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
         >
           <div className="flex flex-col h-full">
             <img
-              src="https://data.1freewallpapers.com/download/hotel-room-1920x1440.jpg"
+              src={products.url}
               className="object-cover w-full h-48"
               alt=""
             />
             <div className="flex-grow border border-t-0 rounded-b">
               <div className="p-5">
                 <h6 className="mb-2 font-semibold leading-5">
-                  Kamar Putra
+                {products.nama}
                 </h6>
                 <p className="text-sm text-gray-900">
-                  Kamar tipe A <span className='font-semibold text-green-500'>Kosong</span>
+                {products.tipe} <span className='font-semibold text-green-500'>{products.stok}</span>
                 </p>
                 <p className="text-sm text-gray-400 mt-2">
-                  K.Mandi dalam - Wifi - Ac - Kloset....
+                {products.keterangan}
                 </p>
                 <p className='text-sm text-violet-600 font-bold mt-2'>
-                  Rp2.500.000 / bulan
+                {products.harga}
                 </p>
               </div>
             </div>
           </div>
         </a>
-        <a
-          href="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://pix10.agoda.net/hotelImages/487/48706/48706_15112812130038096768.jpg"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-             <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Kamar Putra
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Kamar tipe A <span className='font-semibold text-green-500'>Kosong</span>
-                </p>
-                <p className="text-sm text-gray-400 mt-2">
-                  K.Mandi dalam - Wifi - Ac - Kloset....
-                </p>
-                <p className='text-sm text-violet-600 font-bold mt-2'>
-                  Rp2.500.000 / bulan
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a
-          href="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://pix10.agoda.net/hotelImages/547/547787/547787_16102013490047964386.jpg"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Kamar Putra
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Kamar tipe A <span className='font-semibold text-green-500'>Kosong</span>
-                </p>
-                <p className="text-sm text-gray-400 mt-2">
-                  K.Mandi dalam - Wifi - Ac - Kloset....
-                </p>
-                <p className='text-sm text-violet-600 font-bold mt-2'>
-                  Rp2.500.000 / bulan
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a
-          href="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://pix10.agoda.net/hotelImages/416/4166/4166_17103110390058501907.jpg"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Kamar Putra
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Kamar tipe A <span className='font-semibold text-green-500'>Kosong</span>
-                </p>
-                <p className="text-sm text-gray-400 mt-2">
-                  K.Mandi dalam - Wifi - Ac - Kloset....
-                </p>
-                <p className='text-sm text-violet-600 font-bold mt-2'>
-                  Rp2.500.000 / bulan
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a
-          href="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://i0.wp.com/www.devenews.com/wp-content/uploads/2018/05/gambar-1-3.jpg?fit=1600%2C900&ssl=1"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-             <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Kamar Putra
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Kamar tipe B <span className='font-semibold text-green-500'>Kosong</span>
-                </p>
-                <p className="text-sm text-gray-400 mt-2">
-                  K.Mandi dalam - Wifi - Ac - Kloset....
-                </p>
-                <p className='text-sm text-violet-600 font-bold mt-2'>
-                  Rp2.500.000 / bulan
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a
-          href="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://www.eastparchotel.com/wp-content/uploads/2017/09/Premier-Room-Twin.jpg"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Kamar Putra
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Kamar tipe B <span className='font-semibold text-green-500'>Kosong</span>
-                </p>
-                <p className="text-sm text-gray-400 mt-2">
-                  K.Mandi dalam - Wifi - Ac - Kloset....
-                </p>
-                <p className='text-sm text-violet-600 font-bold mt-2'>
-                  Rp2.500.000 / bulan
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a
-          href="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://pix10.agoda.net/hotelImages/763/76380/76380_17020317330050765157.jpg?s=1024x768"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Kamar Putra
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Kamar tipe B <span className='font-semibold text-green-500'>Kosong</span>
-                </p>
-                <p className="text-sm text-gray-400 mt-2">
-                  K.Mandi dalam - Wifi - Ac - Kloset....
-                </p>
-                <p className='text-sm text-violet-600 font-bold mt-2'>
-                  Rp2.500.000 / bulan
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <a
-          href="/"
-          aria-label="View Item"
-          className="inline-block overflow-hidden duration-300 transform bg-white rounded shadow-sm hover:-translate-y-2"
-        >
-          <div className="flex flex-col h-full">
-            <img
-              src="https://wisataka.com/wp-content/uploads/2018/05/kamar-the-arista-hotel.png"
-              className="object-cover w-full h-48"
-              alt=""
-            />
-            <div className="flex-grow border border-t-0 rounded-b">
-              <div className="p-5">
-                <h6 className="mb-2 font-semibold leading-5">
-                  Kamar Putra
-                </h6>
-                <p className="text-sm text-gray-900">
-                  Kamar tipe B <span className='font-semibold text-green-500'>Kosong</span>
-                </p>
-                <p className="text-sm text-gray-400 mt-2">
-                  K.Mandi dalam - Wifi - Ac - Kloset....
-                </p>
-                <p className='text-sm text-violet-600 font-bold mt-2'>
-                  Rp2.500.000 / bulan
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
+      ))}
       </div>
+      
       <div className="text-center">
         
       </div>

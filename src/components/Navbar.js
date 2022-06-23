@@ -7,7 +7,7 @@ const navigation = [
   { name: 'Kamar', href: 'Kamar', current: false },
   { name: 'Pusat Bantuan', href: 'Pusat', current: false },
   { name: 'Syarat & Ketentuan', href: 'Syarat', current: false },
-  { name: 'Api', href: 'Api', current: false },
+
   
   
 

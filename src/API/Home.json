@@ -1,0 +1,54 @@
+{"success":true,"products":[
+
+    {
+        "id":"1", 
+        "url":"https://storage.googleapis.com/tempatwisataunik/2016/01/Monas-Jakarta.jpg",
+        "keterangan":"Jakarta"
+    },
+    
+    {
+        "id":"2", 
+        "url":"https://2.bp.blogspot.com/-u5nlNT1vT74/T4-H8ryF3QI/AAAAAAAAAPw/BYyarxq19x0/s1600/GEDUNG+SATE,+BANDUNG.jpg",
+        "keterangan":"Bandung"
+    },
+
+    {
+        "id":"3", 
+        "url":"https://www.mysweetescapediary.com/wp-content/uploads/2018/05/kota-tua-semarang-1-1024x768.jpg",
+        "keterangan":"Semarang"
+    },
+
+    {
+        "id":"4", 
+        "url":"http://initu.id/wp-content/uploads/2018/05/Sejarah-Wisata-Kuliner-Purwokerto-Ibu-Kota-Banyumas.jpg",
+        "keterangan":"Purwokerto"
+    },
+
+    {
+        "id":"5", 
+        "url":"https://www.silverkris.com/wp-content/uploads/2017/11/Suroboyo-Monument.jpg",
+        "keterangan":"Surabaya"
+    },
+
+    {
+        "id":"6", 
+        "url":"http://wallpapersdsc.net/wp-content/uploads/2017/10/Bali-Gallery.jpg",
+        "keterangan":"Bali"
+    },
+
+    {
+        "id":"7", 
+        "url":"http://www.easybook.com/images/destination/Indonesia/Palembang/AmperaBridge3.jpg",
+        "keterangan":"Palembang"
+    },
+
+    {
+        "id":"8", 
+        "url":"https://c4.wallpaperflare.com/wallpaper/395/382/562/bulb-city-indonesia-java-wallpaper-preview.jpg",
+        "keterangan":"Yogyakarta"
+    }
+    
+    
+    
+    ],"totalRecordCount":10,"version":"17.0.13"}
+    
